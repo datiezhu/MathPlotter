@@ -1,6 +1,6 @@
 ﻿<Window x:Class="MathPlotter.BaseWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         Title="MainWindow" Height="421" Width="753" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanResizeWithGrip" Background="Transparent">
     <!--Metro Button-->
     <Border Margin="10" BorderBrush="Black" BorderThickness="1">
@@ -52,7 +52,18 @@
                     </StackPanel>
                 </DockPanel>
                 <ContentControl Name="content">
-                    
+                    <Grid>
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox Grid.Column="0" Height="Auto" Name="listBox1" Width="240" Margin="5 5">
+                            <ListBoxItem Content="Test1"/>
+                            <ListBoxItem Content="Test2"/>
+                        </ListBox>
+                        <Frame x:Name="frmFrame" Grid.Column="1" Width="Auto" Height="Auto"/>
+                    </Grid>
                 </ContentControl>
             </DockPanel>
         </Grid>

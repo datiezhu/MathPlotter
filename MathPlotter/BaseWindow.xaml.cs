@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MathPlotter.Windows;
 
 namespace MathPlotter
 {
@@ -23,6 +24,8 @@ namespace MathPlotter
         {
             InitializeComponent();
             this.MouseLeftButtonDown += (o, e) => DragMove();
+            Page pa = ModuleList.Items.First().Page;
+            frmFrame.Navigate(pa);
         }
 
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)

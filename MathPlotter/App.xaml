@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="BaseWindow.xaml">
     <Application.Resources>
+        <!--Solid Brushes-->
+        <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF" />
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#AA0000" />
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#AA0000" />
+        <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+        <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="SkyBlue" />
         <!--Metro Button-->
         <Style TargetType="{x:Type Button}" BasedOn="{x:Null}">
             <Setter Property="Background" Value="Transparent"/>
@@ -39,6 +45,72 @@
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="BorderBrush" Value="#7f222222" TargetName="Border"/>
                                 <Setter Property="Foreground" Value="#7f222222"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--ListBox Style-->
+        <Style x:Key="{x:Type ListBox}" TargetType="ListBox">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="95"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border Name="Border" Background="{StaticResource WindowBackgroundBrush}" BorderBrush="{StaticResource SolidBorderBrush}" BorderThickness="0" CornerRadius="2">
+                            <ScrollViewer Margin="0" Focusable="false">
+                                    <StackPanel Margin="2" IsItemsHost="True" />
+                            </ScrollViewer>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBorderBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--ListBoxItem Style-->
+        <Style x:Key="{x:Type ListBoxItem}" TargetType="ListBoxItem">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border" Padding="5" SnapsToDevicePixels="true">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Stroke="LightGray" Width="30" Height="30" Grid.Column="0" Fill="LightGray"/>
+                                <TextBlock Name="Text"  Foreground="Black" FontWeight="Bold" FontSize="20" FontFamily="Segoe WP SemiLight" Grid.Column="1" Margin="0 0" Width="Auto">
+                                    <ContentPresenter
+                                      x:Name="contentPresenter"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      Margin="{TemplateBinding Padding}"/>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter Property="Background" Value="{StaticResource SelectedBackgroundBrush}" TargetName="Text"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MathPlotter.BaseWindow"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        Title="MainWindow" Height="421" Width="753" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanResizeWithGrip" Background="Transparent">
+        Title="MainWindow" Height="520" Width="1047" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanResizeWithGrip" Background="Transparent" Icon="/MathPlotter;component/icon.ico">
     <!--Metro Button-->
     <Border Margin="10" BorderBrush="Black" BorderThickness="1">
         <Border.Effect>
@@ -27,13 +27,13 @@
                     </Grid>
                     <TextBlock Padding="8" Grid.Column="0"
                                VerticalAlignment="Center" 
-                               Text="My Special Window" 
+                               Text="MathPlotter" 
                                Foreground="Black" 
                                FontWeight="Bold" 
                                FontSize="14" FontFamily="Segoe WP SemiLight">
-                        <TextBlock.Effect>
+                        <!--<TextBlock.Effect>
                             <DropShadowEffect BlurRadius="2" ShadowDepth="0"/>
-                        </TextBlock.Effect>
+                        </TextBlock.Effect>-->
                     </TextBlock>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Width="28" x:Name="MinimizeButton" Click="MinimizeButton_Click">
@@ -55,14 +55,18 @@
                     <Grid>
                         
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <ListBox Grid.Column="0" Height="Auto" Name="listBox1" Width="240" Margin="5 5">
-                            <ListBoxItem Content="Test1"/>
-                            <ListBoxItem Content="Test2"/>
-                        </ListBox>
-                        <Frame x:Name="frmFrame" Grid.Column="1" Width="Auto" Height="Auto"/>
+                        <Expander x:Name="exExpander" Grid.Column="0" ExpandDirection="Right" IsManipulationEnabled="False" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" IsExpanded="True">
+                            <StackPanel Orientation="Vertical" Width="250">
+                                
+                                <TextBlock FontFamily="Segoe WP SemiLight" FontSize="22" Margin="10 20 5 0">Menu</TextBlock>
+                                <ListBox Height="Auto" Name="listBox1" Width="240" Margin="5 5">
+                                </ListBox>
+                            </StackPanel>
+                        </Expander>
+                        <Frame x:Name="frmFrame" Grid.Column="1" Width="Auto" Height="Auto" HorizontalContentAlignment="Stretch"/>
                     </Grid>
                 </ContentControl>
             </DockPanel>

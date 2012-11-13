@@ -88,24 +88,43 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ListBoxItem">
-                        <Border Name="Border" Padding="5" SnapsToDevicePixels="true">
+                        <Border Name="Border" Padding="3" SnapsToDevicePixels="true">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="3"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <Rectangle Stroke="LightGray" Width="30" Height="30" Grid.Column="0" Fill="LightGray"/>
-                                <TextBlock Name="Text"  Foreground="Black" FontWeight="Bold" FontSize="20" FontFamily="Segoe WP SemiLight" Grid.Column="1" Margin="0 0" Width="Auto">
-                                    <ContentPresenter
-                                      x:Name="contentPresenter"
-                                      Content="{TemplateBinding Content}"
-                                      ContentTemplate="{TemplateBinding ContentTemplate}"
-                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                      Margin="{TemplateBinding Padding}"/>
-                                </TextBlock>
+                                <Canvas Grid.Column="0" Name="GlowItem" Visibility="Collapsed">
+                                    <Canvas.Effect>
+                                        <DropShadowEffect Direction="0" BlurRadius="5" Opacity="1" ShadowDepth="0" Color="Aqua"/>
+                                    </Canvas.Effect>
+                                    <Line X1="10" X2="22" Stroke="Black" Y1="4" Y2="16" StrokeThickness="4"/>
+                                    <Line X1="22" X2="10" Stroke="Black" Y1="14" Y2="26" StrokeThickness="4"/>
+                                </Canvas>
+                                <Canvas Grid.Column="0" Name="NoGlowItem">
+                                    <Line X1="10" X2="22" Stroke="DarkGray" Y1="4" Y2="16" StrokeThickness="4"/>
+                                    <Line X1="22" X2="10" Stroke="DarkGray" Y1="14" Y2="26" StrokeThickness="4"/>
+                                </Canvas>
+                                <Rectangle Width="2" Height="30" Grid.Column="1"/>
+                                    <TextBlock Name="Text"  Foreground="Black" FontWeight="Bold" FontSize="20" Grid.Column="2" Width="Auto" FontFamily="Segoe WP SemiLight" Margin="0 0">
+                                        <ContentPresenter
+                                          x:Name="contentPresenter"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}"/>
+                                    </TextBlock>
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="AliceBlue" TargetName="Text"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                                <Setter Property="Visibility" Value="Visible" TargetName="GlowItem"/>
+                                <Setter Property="Visibility" Value="Collapsed" TargetName="NoGlowItem"/>
+                            </Trigger>
                             <Trigger Property="IsSelected" Value="true">
                                 <Setter Property="Background" Value="{StaticResource SelectedBackgroundBrush}" TargetName="Text"/>
                             </Trigger>

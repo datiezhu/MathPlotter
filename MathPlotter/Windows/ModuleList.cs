@@ -11,11 +11,13 @@ namespace MathPlotter.Windows
         public struct Module
         {
             public string Name;
+            public string Group;
             public Page Page;
 
-            public Module(string name, Page page)
+            public Module(string name, string group, Page page)
             {
                 this.Name = name;
+                this.Group = group;
                 this.Page = page;
             }
         }
@@ -32,7 +34,8 @@ namespace MathPlotter.Windows
         static ModuleList()
         {
             items = new List<Module>();
-            items.Add(new Module("Okno testowe", new Test()));
+            items.Add(new Module("Start", "Menu główne", new StartPage()));
+            items.Add(new Module("Okno testowe", "Testy", new Test()));
         }
     }
 }

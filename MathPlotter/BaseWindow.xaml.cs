@@ -1,17 +1,11 @@
-﻿using System;
+﻿using System.ComponentModel;
+using System.Windows;
+using System.Windows.Data;
+using MathPlotter.Windows;
+using System.Windows.Controls;
+using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using MathPlotter.Windows;
 
 namespace MathPlotter
 {
@@ -22,10 +16,23 @@ namespace MathPlotter
     {
         public BaseWindow()
         {
+            items = new ObservableCollection<ModuleList.Module>();
+
             InitializeComponent();
             this.MouseLeftButtonDown += (o, e) => DragMove();
-            Page pa = ModuleList.Items.First().Page;
-            frmFrame.Navigate(pa);
+            var pages = ModuleList.Items;
+            frmFrame.Navigate(pages.FirstOrDefault(x => x.Name == "Start").Page);
+            GenerateMenuItems();
+        }
+
+        public ObservableCollection<MathPlotter.Windows.ModuleList.Module> items { get; set; }
+
+        private void GenerateMenuItems()
+        {
+            foreach (MathPlotter.Windows.ModuleList.Module module in ModuleList.Items)
+            {
+                listBox1.Items.Add(module.Name);
+            }
         }
 
         private void MaximizeButton_Click(object sender, RoutedEventArgs e)

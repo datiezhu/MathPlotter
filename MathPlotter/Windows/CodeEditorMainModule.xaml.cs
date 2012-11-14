@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MathPlotter.Windows
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for CodeEditorMainModule.xaml
     /// </summary>
-    public partial class Test : Page
+    public partial class CodeEditorMainModule : Page
     {
-        public Test()
+        public CodeEditorMainModule()
         {
             InitializeComponent();
         }

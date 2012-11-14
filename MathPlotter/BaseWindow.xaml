@@ -58,11 +58,10 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Expander x:Name="exExpander" Grid.Column="0" ExpandDirection="Right" IsManipulationEnabled="False" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" IsExpanded="True">
+                        <Expander x:Name="exExpander" Grid.Column="0" ExpandDirection="Right" IsManipulationEnabled="False" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" IsExpanded="True" Margin="0 3 0 0">
                             <StackPanel Orientation="Vertical" Width="250">
-                                
                                 <TextBlock FontFamily="Segoe WP SemiLight" FontSize="22" Margin="10 20 5 0">Menu</TextBlock>
-                                <ListBox Height="Auto" Name="listBox1" Width="240" Margin="5 5">
+                                <ListBox Height="Auto" Name="lbMenu" Width="240" Margin="5 5" SelectionChanged="lbMenu_SelectionChanged">
                                 </ListBox>
                             </StackPanel>
                         </Expander>

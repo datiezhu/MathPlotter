@@ -34,8 +34,8 @@ namespace MathPlotter.Windows
         static ModuleList()
         {
             items = new List<Module>();
-            items.Add(new Module("Start", "Menu główne", new StartPage()));
-            items.Add(new Module("Okno testowe", "Testy", new Test()));
+            items.Add(new Module("Start", "Main Menu", new StartPage()));
+            items.Add(new Module("Script Editor", "Editors", new CodeEditorMainModule()));
         }
     }
 }

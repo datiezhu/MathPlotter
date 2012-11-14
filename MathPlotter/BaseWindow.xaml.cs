@@ -16,22 +16,18 @@ namespace MathPlotter
     {
         public BaseWindow()
         {
-            items = new ObservableCollection<ModuleList.Module>();
-
             InitializeComponent();
             this.MouseLeftButtonDown += (o, e) => DragMove();
             var pages = ModuleList.Items;
             frmFrame.Navigate(pages.FirstOrDefault(x => x.Name == "Start").Page);
             GenerateMenuItems();
         }
-
-        public ObservableCollection<MathPlotter.Windows.ModuleList.Module> items { get; set; }
-
+        
         private void GenerateMenuItems()
         {
             foreach (MathPlotter.Windows.ModuleList.Module module in ModuleList.Items)
             {
-                listBox1.Items.Add(module.Name);
+                lbMenu.Items.Add(module.Name);
             }
         }
 
@@ -55,6 +51,11 @@ namespace MathPlotter
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = System.Windows.WindowState.Minimized;
+        }
+
+        private void lbMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.frmFrame.Navigate(ModuleList.Items.SingleOrDefault(p => p.Name == (string)lbMenu.SelectedItem).Page);
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<Window x:Class="MathPlotter.Support.DialogBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        SizeToContent="Height" Width="561" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanResize" Background="Transparent" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" Topmost="True">
+    <!--Metro Button-->
+    <Border Margin="10" BorderBrush="Black" BorderThickness="1" CornerRadius="5" Height="Auto">
+        <Border.Effect>
+            <DropShadowEffect Color="Black" 
+                              Direction="270"
+                              BlurRadius="10"
+                              ShadowDepth="3" />
+        </Border.Effect>
+        <Grid Background="#BB000000" x:Name="grdGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="3"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="MessageName" Grid.Row="0" Text="Test" Foreground="White" FontWeight="Bold" FontSize="16" FontFamily="Segoe WP SemiLight" Margin="5"/>
+            <Line Grid.Row="1" Stroke="White" Margin="5 1" Y1="0" Y2="0" StrokeThickness="1" Width="Auto"/>
+            <TextBlock x:Name="MessageText" Grid.Row="2" Text="Test" Foreground="White" FontWeight="Normal" FontSize="14" FontFamily="Segoe WP SemiLight" Margin="5"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 5" Grid.Row="3">
+                <Button x:Name="btYes" Content="Yes" Width="100" Click="btYes_Click" />
+                <Button x:Name="btNo" Content="No" Width="100" Click="btNo_Click" />
+                <Button x:Name="btOK" Content="OK" Width="100" Click="btOK_Click" />
+                <Button x:Name="btCanvel" Content="Cancel" Width="100" Click="btCanvel_Click" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

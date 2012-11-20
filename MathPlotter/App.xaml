@@ -1,6 +1,7 @@
 ﻿<Application x:Class="MathPlotter.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit" 
              StartupUri="BaseWindow.xaml">
     <Application.Resources>
         <!--Solid Brushes-->
@@ -10,7 +11,7 @@
         <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
         <SolidColorBrush x:Key="SelectedBackgroundBrush" Color="SkyBlue" />
         <!--Metro Button-->
-        <Style TargetType="{x:Type Button}" BasedOn="{x:Null}">
+        <Style TargetType="{x:Type Button}" BasedOn="{x:Null}" x:Key="ButtonWB">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#222222"/>
             <Setter Property="FontSize" Value="14"/>
@@ -32,6 +33,7 @@
                         <!--Each state sets a brush on the Border in the template -->
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Cursor" Value="Hand"/>
                                 <Setter Property="Background" Value="LightBlue" TargetName="Border"/>
                                 <Setter Property="BorderBrush" Value="AliceBlue" TargetName="Border"/>
                             </Trigger>
@@ -50,6 +52,11 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonWB}">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="BorderBrush" Value="#BBB"/>
+            <Setter Property="BorderThickness" Value="1"/>
         </Style>
         <!--ListBox Style-->
         <Style x:Key="{x:Type ListBox}" TargetType="ListBox">
@@ -136,6 +143,5 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
     </Application.Resources>
 </Application>

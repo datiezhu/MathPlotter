@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MathPlotter.BaseWindow"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        Title="MainWindow" Height="520" Width="1047" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanResizeWithGrip" Background="Transparent" Icon="/MathPlotter;component/icon.ico">
+        Title="MainWindow" MinHeight="500" MinWidth="900" Height="520" Width="1147" AllowsTransparency="True" WindowStyle="None" ResizeMode="CanResizeWithGrip" Background="Transparent" Icon="/MathPlotter;component/icon.ico" WindowStartupLocation="CenterScreen">
     <!--Metro Button-->
     <Border Margin="10" BorderBrush="Black" BorderThickness="1">
         <Border.Effect>
@@ -36,17 +36,17 @@
                         </TextBlock.Effect>-->
                     </TextBlock>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                        <Button HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Width="28" x:Name="MinimizeButton" Click="MinimizeButton_Click">
+                        <Button HorizontalAlignment="Right" Background="Transparent" Style="{StaticResource ButtonWB}" BorderBrush="Transparent" BorderThickness="0" Width="28" x:Name="MinimizeButton" Click="MinimizeButton_Click">
                             <Button.Content>
                                 <Line Stroke="Black" Y1="12" Y2="12" X1="0" X2="10"/>
                             </Button.Content>
                         </Button>
-                        <Button HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Width="28" x:Name="MaximizeButton" Click="MaximizeButton_Click">
+                        <Button HorizontalAlignment="Right" Background="Transparent" Style="{StaticResource ButtonWB}" BorderBrush="Transparent" BorderThickness="0" Width="28" x:Name="MaximizeButton" Click="MaximizeButton_Click">
                             <Button.Content>
                                 <Rectangle Width="10" Height="10" Stroke="Black" Margin="0 2 0 0"/>
                             </Button.Content>
                         </Button>
-                        <Button HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Width="28" x:Name="CloseButton" Click="CloseButton_Click">
+                        <Button HorizontalAlignment="Right" Background="Transparent" Style="{StaticResource ButtonWB}" BorderBrush="Transparent" BorderThickness="0" Width="28" x:Name="CloseButton" Click="CloseButton_Click">
                             <Button.Content>X</Button.Content>
                         </Button>
                     </StackPanel>
@@ -56,7 +56,7 @@
                         
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Expander x:Name="exExpander" Grid.Column="0" ExpandDirection="Right" IsManipulationEnabled="False" VerticalContentAlignment="Stretch" VerticalAlignment="Stretch" IsExpanded="True" Margin="0 3 0 0">
                             <StackPanel Orientation="Vertical" Width="250">
@@ -65,7 +65,9 @@
                                 </ListBox>
                             </StackPanel>
                         </Expander>
-                        <Frame x:Name="frmFrame" Grid.Column="1" Width="Auto" Height="Auto" HorizontalContentAlignment="Stretch"/>
+                        <DockPanel LastChildFill="True" Grid.Column="1" Width="Auto" HorizontalAlignment="Stretch">
+                            <Frame x:Name="frmFrame" NavigationUIVisibility="Hidden" Width="Auto"/>
+                        </DockPanel>
                     </Grid>
                 </ContentControl>
             </DockPanel>

@@ -74,6 +74,9 @@
       <DependentUpon>CodeEditorMainModule.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\ModuleList.cs" />
+    <Compile Include="Windows\PlotterMainModule.xaml.cs">
+      <DependentUpon>PlotterMainModule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CodeEditorMainModule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PlotterMainModule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

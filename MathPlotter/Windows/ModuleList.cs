@@ -36,6 +36,7 @@ namespace MathPlotter.Windows
             items = new List<Module>();
             items.Add(new Module("Start", "Main Menu", new StartPage()));
             items.Add(new Module("Script Editor", "Editors", new CodeEditorMainModule()));
+            items.Add(new Module("Plotter", "Designers", new PlotterMainModule()));
         }
     }
 }

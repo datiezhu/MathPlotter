@@ -40,25 +40,25 @@ namespace MathPlotter.Support
                     btOK.Visibility = Visibility.Visible;
                     btNo.Visibility = Visibility.Collapsed;
                     btYes.Visibility = Visibility.Collapsed;
-                    btCanvel.Visibility = Visibility.Collapsed;
+                    btCancel.Visibility = Visibility.Collapsed;
                     break;
                 case Buttons.OkCancel:
                     btOK.Visibility = Visibility.Visible;
                     btNo.Visibility = Visibility.Collapsed;
                     btYes.Visibility = Visibility.Collapsed;
-                    btCanvel.Visibility = Visibility.Visible;
+                    btCancel.Visibility = Visibility.Visible;
                     break;
                 case Buttons.YesNo:
                     btOK.Visibility = Visibility.Collapsed;
                     btNo.Visibility = Visibility.Visible;
                     btYes.Visibility = Visibility.Visible;
-                    btCanvel.Visibility = Visibility.Collapsed;
+                    btCancel.Visibility = Visibility.Collapsed;
                     break;
                 case Buttons.YesNoCancel:
                     btOK.Visibility = Visibility.Collapsed;
                     btNo.Visibility = Visibility.Visible;
                     btYes.Visibility = Visibility.Visible;
-                    btCanvel.Visibility = Visibility.Visible;
+                    btCancel.Visibility = Visibility.Visible;
                     break;
             }
             this.MouseLeftButtonDown += (o, e) => DragMove();
@@ -82,7 +82,7 @@ namespace MathPlotter.Support
             Close();
         }
 
-        private void btCanvel_Click(object sender, RoutedEventArgs e)
+        private void btCancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
             Close();

@@ -24,7 +24,7 @@
                 <Button x:Name="btYes" Content="Yes" Width="100" Click="btYes_Click" />
                 <Button x:Name="btNo" Content="No" Width="100" Click="btNo_Click" />
                 <Button x:Name="btOK" Content="OK" Width="100" Click="btOK_Click" />
-                <Button x:Name="btCanvel" Content="Cancel" Width="100" Click="btCanvel_Click" />
+                <Button x:Name="btCancel" Content="Cancel" Width="100" Click="btCancel_Click" />
             </StackPanel>
         </Grid>
     </Border>

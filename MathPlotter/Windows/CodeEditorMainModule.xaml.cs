@@ -26,13 +26,13 @@ namespace MathPlotter.Windows
             }
         }
 
-        private ScriptEngine scriptEngine;
+        private ScriptingEngine scriptEngine;
 
         public CodeEditorMainModule()
         {
             InitializeComponent();
             AddPythonCodeFormater();
-            scriptEngine = new ScriptEngine();
+            scriptEngine = new ScriptingEngine();
         }
 
         public void AddPythonCodeFormater()
@@ -105,10 +105,13 @@ namespace MathPlotter.Windows
             SaveFile();
             if (fileName != null)
             {
-                //scriptEngine.TestScript(this.fileName);
+                /*
                 string strCmdText;
                 strCmdText = this.fileName;
                 System.Diagnostics.Process.Start("python.exe", strCmdText);
+               */
+                scriptEngine.SetSource(edScript.Text);
+                scriptEngine.Execute();
             }
         }
 

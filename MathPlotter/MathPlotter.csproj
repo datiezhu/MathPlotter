@@ -159,8 +159,8 @@
     <Resource Include="Resources\right.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WpfControlLibrary1\Scripting.csproj">
-      <Project>{315E1206-9ADF-42D6-8DEF-192FF11D5628}</Project>
+    <ProjectReference Include="..\Scripting\Scripting.csproj">
+      <Project>{3B47BEDF-5630-48FA-9908-D1E9C8C38CCD}</Project>
       <Name>Scripting</Name>
     </ProjectReference>
   </ItemGroup>

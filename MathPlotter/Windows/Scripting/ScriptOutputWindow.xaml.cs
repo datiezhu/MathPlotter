@@ -11,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Scripting
+namespace MathPlotter.Windows.Scripting
 {
     /// <summary>
     /// Interaction logic for ScriptOutputWindow.xaml
@@ -22,19 +22,6 @@ namespace Scripting
         {
             InitializeComponent();
             this.MouseLeftButtonDown += (o, e) => DragMove();
-        }
-
-        private void btClose_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void edInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-
-            }
         }
     }
 }

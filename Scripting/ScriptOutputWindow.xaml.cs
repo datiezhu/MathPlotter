@@ -10,8 +10,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Automation.Peers;
 
-namespace Scripting
+
+using System.Windows.Automation.Provider;namespace Scripting
 {
     /// <summary>
     /// Interaction logic for ScriptOutputWindow.xaml
@@ -33,7 +35,11 @@ namespace Scripting
         {
             if (e.Key == Key.Enter)
             {
-                
+                ButtonAutomationPeer peer = new ButtonAutomationPeer(btEnterCommand);
+                IInvokeProvider invokeProv =
+                  peer.GetPattern(PatternInterface.Invoke)
+                  as IInvokeProvider;
+                invokeProv.Invoke();
             }
         }
     }

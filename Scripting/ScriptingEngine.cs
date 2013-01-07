@@ -45,6 +45,11 @@ namespace Scripting
 
         public void Execute()
         {
+            if(OutputWindow == null)
+            {
+                CreateOutputWindow();
+            }
+
             OutputWindow.Show();
 
             try
@@ -87,7 +92,15 @@ namespace Scripting
         private void RunCommand(object sender, RoutedEventArgs e)
         {
             SetSource(OutputWindow.edInput.Text);
-            OutputWindow.edOutput.Text += ScriptSource.Execute(scriptScope) + "\n";
+            OutputWindow.edInput.Text = "";
+            try
+            {
+                OutputWindow.edOutput.Text += ScriptSource.Execute(scriptScope) + "\n";
+            }
+            catch (Exception ex)
+            {
+                Exception(ex);
+            }
         }
     }
 }
